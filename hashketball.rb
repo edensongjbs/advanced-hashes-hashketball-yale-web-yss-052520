@@ -8,7 +8,7 @@ def game_hash
       colors: ["Black", "White"],
       players: [
         {
-          player_name: "Alan Andersonasdfkljasdf;lkjasdf",
+          player_name: "Alan Anderson",
           number: 0,
           shoe: 16,
           points: 22,
@@ -248,4 +248,6 @@ def player_with_longest_name
   return longest_named_player[:player_name] 
 end
 
-p player_with_longest_name
+def long_name_steals_a_ton?
+  
+end
