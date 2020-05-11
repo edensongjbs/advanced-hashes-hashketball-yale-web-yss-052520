@@ -182,7 +182,7 @@ def player_numbers(team_name)
   }
 end
 
-def shoe_size(player_name)
+def player_stats(player_name)
   game_hash.reduce(nil){ |m1, (away_or_home, team)|
     team[:players].reduce(m1) { |m2, player|
       if player[:player_name]==player_name
