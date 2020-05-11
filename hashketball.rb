@@ -146,7 +146,7 @@ def shoe_size(player_name)
   game_hash.reduce(nil){ |m1, (away_or_home, team)|
     team[:players].reduce(m1) { |m2, player|
       if player[:player_name]==player_name
-        return player[:shoe_size]
+        return player[:shoe]
       end
       m2
     }
