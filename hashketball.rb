@@ -154,3 +154,13 @@ def shoe_size(player_name)
   }
   return nil
 end
+
+def team_colors(team_name)
+  game_hash.reduce(nil){ |memo, (away_or_home, team)|
+    if team[:team_name]==team_name
+      return team[:colors]
+    }
+    memo
+  }
+  return nil
+end
