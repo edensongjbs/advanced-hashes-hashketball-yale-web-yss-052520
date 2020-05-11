@@ -248,6 +248,20 @@ def player_with_longest_name
   return longest_named_player[:player_name] 
 end
 
+def most_steals
+  high_steals=0
+  high_stealing_player=game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:steals]>high_steals
+        high_steals=player[:steals]
+        m2=player
+      end
+      m2
+    }
+  }
+  return high_stealing_player[:player_name] 
+end
+
 def long_name_steals_a_ton?
-  
+  most_steals==longest_named_player
 end
