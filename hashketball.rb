@@ -134,7 +134,7 @@ def num_points_scored(player_name)
     #binding.pry
     team[:players].reduce(m1) { |m2, player|
       binding.pry
-      if player[:name]==player_name
+      if player[:player_name]==player_name
         return player[:points]
       end
       m2
