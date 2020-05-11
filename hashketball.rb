@@ -207,3 +207,19 @@ def big_shoe_rebounds
   }
   return largest_shoed_player[:rebounds] 
 end
+
+def most_points_scored
+  high_points=0
+  high_scoring_player=game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:points]>high_points
+        high_points=player[:points]
+        m2=player
+      end
+      m2
+    }
+  }
+  return high_scoring_player[:player_name] 
+end
+
+p most_points_scored
