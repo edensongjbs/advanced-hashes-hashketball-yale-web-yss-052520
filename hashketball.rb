@@ -170,3 +170,13 @@ def team_names
     memo << team[:team_name]
   }
 end
+
+def player_numbers(team_name)
+  game_hash.reduce([]){ |outer_memo, (away_or_home, team)|
+    if team[:team_name]==team_name
+      team[:players].reduce
+    end
+    memo
+  }
+  return nil
+end
