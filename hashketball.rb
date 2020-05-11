@@ -1,4 +1,6 @@
 # Write your code below game_hash
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -127,3 +129,139 @@ def game_hash
 end
 
 # Write code here
+def num_points_scored(player_name)
+  game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    team[:players].reduce(m1) { |m2, player|
+      if player[:player_name]==player_name
+        return player[:points]
+      end
+      m2
+    }
+    m1
+  }
+  return nil
+end
+
+def shoe_size(player_name)
+  game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    team[:players].reduce(m1) { |m2, player|
+      if player[:player_name]==player_name
+        return player[:shoe]
+      end
+      m2
+    }
+    m1
+  }
+  return nil
+end
+
+def team_colors(team_name)
+  game_hash.reduce(nil){ |memo, (away_or_home, team)|
+    if team[:team_name]==team_name
+      return team[:colors]
+    end
+    memo
+  }
+  return nil
+end
+
+def team_names
+  game_hash.reduce([]){ |memo, (away_or_home, team)|
+    memo << team[:team_name]
+  }
+end
+
+def player_numbers(team_name)
+  game_hash.reduce([]){ |outer_memo, (away_or_home, team)|
+    if team[:team_name]==team_name
+      team[:players].reduce(outer_memo){ |inner_memo, player_hash|
+        inner_memo << player_hash[:number]
+      }
+    end
+    outer_memo
+  }
+end
+
+def player_stats(player_name)
+  game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    team[:players].reduce(m1) { |m2, player|
+      if player[:player_name]==player_name
+        player.delete(:name)
+        return player
+      end
+    }
+  }
+  nil
+end
+
+def big_shoe_rebounds
+  largest_shoe_size=0
+  largest_shoed_player=game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:shoe]>largest_shoe_size
+        largest_shoe_size=player[:shoe]
+        m2=player
+      end
+      m2
+    }
+  }
+  return largest_shoed_player[:rebounds] 
+end
+
+def most_points_scored
+  high_points=0
+  high_scoring_player=game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:points]>high_points
+        high_points=player[:points]
+        m2=player
+      end
+      m2
+    }
+  }
+  return high_scoring_player[:player_name] 
+end
+
+def tally_total_points(team_hash)
+  team_hash[:players].reduce(0){ |memo, player|
+    memo+=player[:points]
+  }
+end
+
+def winning_team
+  game_hash_var=game_hash
+  home_score=tally_total_points(game_hash_var[:home])
+  away_score=tally_total_points(game_hash_var[:away])
+  away_score>=home_score ? game_hash_var[:away][:team_name] : game_hash_var[:home][:team_name]
+end
+
+def player_with_longest_name
+  longest_named_player={:player_name =>""}
+  longest_named_player=game_hash.reduce(longest_named_player){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:player_name].length>m2[:player_name].length
+        m2=player
+      end
+      m2
+    }
+  }
+  return longest_named_player[:player_name] 
+end
+
+def most_steals
+  high_steals=0
+  high_stealing_player=game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:steals]>high_steals
+        high_steals=player[:steals]
+        m2=player
+      end
+      m2
+    }
+  }
+  return high_stealing_player[:player_name] 
+end
+
+def long_name_steals_a_ton?
+  most_steals==player_with_longest_name
+end
