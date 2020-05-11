@@ -235,4 +235,4 @@ def winning_team
   away_score>=home_score ? game_hash_var[:away][:team_name] : game_hash_var[:home][:team_name]
 end
 
-winning_team
+p winning_team
