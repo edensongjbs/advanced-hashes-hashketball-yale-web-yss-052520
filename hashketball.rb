@@ -266,4 +266,4 @@ def long_name_steals_a_ton?
   most_steals==longest_named_player
 end
 
-p long_name_steals_a_ton
+p long_name_steals_a_ton?
