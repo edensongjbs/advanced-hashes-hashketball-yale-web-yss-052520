@@ -131,9 +131,7 @@ end
 # Write code here
 def num_points_scored(player_name)
   game_hash.reduce(nil){ |m1, (away_or_home, team)|
-    #binding.pry
     team[:players].reduce(m1) { |m2, player|
-      #binding.pry
       if player[:player_name]==player_name
         return player[:points]
       end
