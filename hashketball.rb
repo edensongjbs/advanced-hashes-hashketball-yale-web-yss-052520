@@ -189,9 +189,7 @@ def player_stats(player_name)
         player.delete(:name)
         return player
       end
-      nil
     }
-    nil
   }
   nil
 end
