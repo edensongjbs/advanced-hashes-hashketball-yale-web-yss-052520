@@ -223,12 +223,16 @@ def most_points_scored
 end
 
 def tally_total_points(team_hash)
-  
+  team_hash[:players].reduce(0){ |memo, player|
+    memo+=player[:points]
+  }
 end
 
 def winning_team
   game_hash_var=game_hash
   home_score=tally_total_points(game_hash_var[:home])
-  game_hash_var[:away]
-  return high_scoring_player[:player_name] 
+  away_score=tally_total_points(game_hash_var[:away])
+  away_score>=home_score ? game_hash_var[:away][:team_name] : game_hash_var[:home][:team_name]
 end
+
+winning_team
