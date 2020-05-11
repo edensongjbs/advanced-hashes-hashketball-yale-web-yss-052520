@@ -137,8 +137,9 @@ def num_points_scored(player_name)
       if player[:name]==player_name
         return player[:points]
       end
-      m1
+      m2
     }
+    m1
   }
   return nil
 end
