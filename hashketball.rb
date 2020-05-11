@@ -222,4 +222,13 @@ def most_points_scored
   return high_scoring_player[:player_name] 
 end
 
-p most_points_scored
+def tally_total_points(team_hash)
+  
+end
+
+def winning_team
+  game_hash_var=game_hash
+  home_score=tally_total_points(game_hash_var[:home])
+  game_hash_var[:away]
+  return high_scoring_player[:player_name] 
+end
