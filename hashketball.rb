@@ -235,4 +235,15 @@ def winning_team
   away_score>=home_score ? game_hash_var[:away][:team_name] : game_hash_var[:home][:team_name]
 end
 
-p winning_team
+def player_with_longest_name
+  longest_named_player={:player_name =>""}
+  longest_named_player=game_hash.reduce(longest_named_player){ |m1, (away_or_home, team)|
+    m1=team[:players].reduce(m1) { |m2, player|
+      if player[:player_name].length>m2[:player_name].length
+        m2=player
+      end
+      m2
+    }
+  }
+  return longest_named_player[:player_name] 
+end
