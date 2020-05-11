@@ -182,14 +182,17 @@ def player_numbers(team_name)
   }
 end
 
-def player_stats(team_name)
-  game_hash.reduce([]){ |outer_memo, (away_or_home, team)|
-    if team[:team_name]==team_name
-      team[:players].reduce(outer_memo){ |inner_memo, player_hash|
-        inner_memo << player_hash[:number]
-      }
-    end
-    outer_memo
+def shoe_size(player_name)
+  game_hash.reduce(nil){ |m1, (away_or_home, team)|
+    team[:players].reduce(m1) { |m2, player|
+      if player[:player_name]==player_name
+        player.delete(:name)
+        player
+      end
+      m2
+    }
+    m1
   }
+  return nil
 end
 
