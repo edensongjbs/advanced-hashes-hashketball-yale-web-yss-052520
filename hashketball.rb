@@ -164,3 +164,9 @@ def team_colors(team_name)
   }
   return nil
 end
+
+def team_names
+  game_hash.reduce([]){ |memo, (away_or_home, team)|
+    memo << team[:team_name]
+  }
+end
