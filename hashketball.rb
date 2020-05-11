@@ -141,3 +141,5 @@ def num_points_scored(player_name)
   }
   return nil
 end
+
+def shoe_size(player_name)
