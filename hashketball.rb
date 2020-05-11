@@ -72,7 +72,7 @@ def game_hash
           player_name: "Jeff Adrien",
           number: 4,
           shoe: 18,
-          points: 1000,
+          points: 10,
           rebounds: 1,
           assists: 1,
           steals: 2,
