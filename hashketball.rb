@@ -187,7 +187,7 @@ def player_stats(player_name)
     team[:players].reduce(m1) { |m2, player|
       if player[:player_name]==player_name
         player.delete(:name)
-        player
+        return player
       end
       m2
     }
