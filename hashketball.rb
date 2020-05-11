@@ -14,7 +14,7 @@ def game_hash
           points: 22,
           rebounds: 12,
           assists: 12,
-          steals: 300,
+          steals: 3,
           blocks: 1,
           slam_dunks: 1
         },
@@ -265,5 +265,3 @@ end
 def long_name_steals_a_ton?
   most_steals==player_with_longest_name
 end
-
-p long_name_steals_a_ton?
