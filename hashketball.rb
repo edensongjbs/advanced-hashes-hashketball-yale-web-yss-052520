@@ -189,10 +189,10 @@ def player_stats(player_name)
         player.delete(:name)
         return player
       end
-      m2
+      nil
     }
-    m1
+    nil
   }
-  return nil
+  nil
 end
 
