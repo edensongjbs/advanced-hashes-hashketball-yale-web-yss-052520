@@ -178,6 +178,6 @@ def player_numbers(team_name)
         inner_memo << player_hash[:number]
       }
     end
-    outer_memo
+    #outer_memo
   }
 end
