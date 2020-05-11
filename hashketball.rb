@@ -198,7 +198,7 @@ def big_shoe_rebounds
   largest_shoe_size=0
   largest_shoed_player=game_hash.reduce(nil){ |m1, (away_or_home, team)|
     m1=team[:players].reduce(m1) { |m2, player|
-      if player[:shoe]>player_name
+      if player[:shoe]>largest_shoe_size
         largest_shoe_size=player[:shoe]
         m2=player
       end
